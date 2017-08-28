@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
 
 namespace FirstWebApp
 {
@@ -7,7 +8,8 @@ namespace FirstWebApp
     {
         static void Main(string[] args)
         {
-            var host = WebHost.CreateDefaultBuilder();
+            var host = WebHost.CreateDefaultBuilder(args).UseStartup<Startup>().Build();
+            host.Run();
 
             //Console.WriteLine("Hello World!");
         }

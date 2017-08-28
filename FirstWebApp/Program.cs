@@ -6,7 +6,9 @@ namespace FirstWebApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var host = WebHost.CreateDefaultBuilder();
+
+            //Console.WriteLine("Hello World!");
         }
     }
 }

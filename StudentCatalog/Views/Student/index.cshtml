@@ -1,1 +1,21 @@
-<h1>Hey man, im Student/index.cshtml</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <title>Admin for students</title>
+    </head>
+    <body>
+        <div class="container">
+            <header class="jumbotron">
+                <h1>Hey man, im Student/index.cshtml</h1>
+            </header>
+            <table class="table table-bordered table-inverse table-hover">
+            @foreach(var stud in @ViewBag.stud) { 
+                <tr>
+                    <td> @stud.FirstName, @stud.LastName, @stud.Age </td> 
+                </tr>
+            }
+            </table>
+        </div>
+    </body>
+</html>

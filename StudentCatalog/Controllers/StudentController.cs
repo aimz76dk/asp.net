@@ -14,6 +14,12 @@ namespace test.Controllers
             return View();
         }
 
+        public IActionResult Mvc(int id) 
+        {
+            ViewBag.number = id;
+            return View();
+        }
+
         
     }
 }

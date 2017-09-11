@@ -13,26 +13,46 @@ namespace test.Controllers
     {
         StudentDbContext db = new StudentDbContext();
 
-        public IActionResult Index()
-        {
+        // Read all
+        public IActionResult Index() {
             ViewBag.stud = db.Students.ToList();
             return View();
         }
 
-        public IActionResult Mvc(int id) 
-        {
-            ViewBag.number = id;
+        // Search for FirstName and get info
+        [HttpGet]
+        public IActionResult GetStudent() {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult GetStudent(Student name) {
+            foreach (var stud in db.Students)
+            {
+                if (name.FirstName.ToLower().Equals(stud.FirstName.ToLower()))
+                {
+                    ViewBag.studentFound = stud;
+                    return View();
+                }
+            }
             return View();
         }
 
         // Create
+        [HttpGet]
         public IActionResult Create() {
-            db.Students.Add(new Student{FirstName="Asam", LastName="Ali", Age=23});
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Student st) {
+            db.Students.Add(st);
             db.SaveChanges();
             return View();
         }
 
         // Update
+
 
         // Delete
     }
